@@ -1,0 +1,35 @@
+userModel
+full name-string
+email-string
+password-string
+cart-array
+isadmin-boolean
+orders-array
+contact-number
+picture-string
+
+product
+image
+name
+price
+discount
+bgcolor
+panel color
+text-color
+//$env:NODE_ENV="development"
+
+/->signup or login
+/shop->shop
+/users/cart->cart
+/admmin->admin panel
+/owner/products->show all products
+/OWNER/admin->show admin panel to create products
+
+
+<!-- <% if (error.length>0){%>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%=error%>
+        </span>
+    </div>
+<%}%> -->
