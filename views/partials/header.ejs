@@ -8,6 +8,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-['helvetica_now_display']">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3 bg-white">
+    <nav class="w-full fixed top-0 left-0 px-5 py-3 bg-white flex justify-between items-center">
         <h3 class="text-6xl">SCATCH</h3>
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+        
+        <% if (loggedin) { %>
+            <div class="hidden md:flex gap-5 items-center nav-links">
+                <a href="" class="nav-link">Shop</a>
+                <a href="/cart" class="nav-link">Cart</a>
+                <a href="" class="nav-link">My account</a>
+                <a href="/users/logout" class="nav-link text-red-600">Logout</a>
+            </div>
+            <div class="md:hidden menu-toggle cursor-pointer" onclick="toggleMenu()">☰</div>
+        <% } %>
     </nav>
+
+    <div class="mobile-menu hidden bg-white p-5 md:hidden">
+        <% if (loggedin) { %>
+            <a href="/shopi" class="block py-2">Shop</a>
+            <a href="/cart" class="block py-2">Cart</a>
+            <a href="" class="block py-2">My account</a>
+            <a href="/logout" class="block py-2 text-red-600">Logout</a>
+        <% } %>
+    </div>
+
+
+    <style>
+        nav {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333; /* Default link color */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        .nav-link:hover {
+            color: #007BFF; /* Change color on hover */
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Show menu toggle on mobile */
+            }
+
+            .nav-links {
+                display: none; /* Hide nav links on mobile */
+            }
+
+            .mobile-menu {
+                display: none; /* Hide mobile menu by default */
+            }
+
+            .mobile-menu.show {
+                display: block; /* Show mobile menu when toggled */
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none; /* Hide menu toggle on larger screens */
+            }
+
+            .nav-links {
+                display: flex; /* Show nav links on larger screens */
+            }
+        }
+    </style>
+
+

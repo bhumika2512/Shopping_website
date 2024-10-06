@@ -17,8 +17,9 @@ if(process.env.NODE_ENV==="development"){
         res.status(201).send(createdOwner);
     })
 }
-router.get("/",function(req,res){
-    res.render("cart");
+router.get("/adminPanel",function(req,res){
+    let success=req.flash("success")
+    res.render("createproducts",{success});
 })
 console.log(process.env.NODE_ENV)
 module.exports=router;
